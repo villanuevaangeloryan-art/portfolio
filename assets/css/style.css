@@ -63,11 +63,11 @@ ul {
 }
 
 main {
-    max-width: 760px;
+    max-width: 1100px;
 }
 
 main section {
-    min-height: 60vh;
+    max-width: 760px;
     padding: 4rem 0;
 }
 
@@ -90,6 +90,7 @@ main section {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    padding-left: calc(0.75rem + 2px); /* line up with the nav link text */
 }
 
 .brand-name {
@@ -133,12 +134,45 @@ main section {
 
 /* Home section */
 #home {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 440px);
+    align-items: center;
+    gap: 3rem;
+    max-width: none;
+    min-height: 100vh;
+}
+
+.hero-text {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
     gap: 1.25rem;
-    min-height: 100vh;
+}
+
+.hero-photo {
+    margin: 0;
+}
+
+/* The mask fades the photo to transparent toward its edges, so it blends into the page. */
+.hero-photo img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    -webkit-mask-image: radial-gradient(ellipse closest-side at center, #000 55%, transparent 100%);
+    mask-image: radial-gradient(ellipse closest-side at center, #000 55%, transparent 100%);
+}
+
+@media (max-width: 1100px) {
+    #home {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .hero-photo {
+        max-width: 280px;
+        order: -1;
+    }
 }
 
 .eyebrow {
@@ -218,6 +252,168 @@ main section {
 .btn-primary {
     color: var(--accent);
     border-color: var(--accent);
+}
+
+/* Section headings */
+main h2 {
+    margin: 0 0 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+}
+
+main h2::before {
+    content: "// ";
+    color: var(--accent);
+}
+
+/* About */
+#about p {
+    max-width: 62ch;
+    margin: 0 0 1rem;
+    color: var(--text-muted);
+}
+
+/* Cards (skills and certifications) */
+.card-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.card {
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.card-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.card-meta {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.tag {
+    padding: 0.1rem 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.chip-list li {
+    padding: 0.25rem 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+/* Certification cards: issuer logo on the left, details on the right */
+.cert {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* White tile so any logo stays visible in both dark and light mode */
+.cert-logo {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    padding: 8px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.cert-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.cert .card-head {
+    margin-bottom: 0.25rem;
+}
+
+/* Text link inside a card (e.g. "View credential") */
+.card-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+    border-bottom: 1px solid transparent;
+}
+
+.card-link::after {
+    content: " \2197"; /* north-east arrow: signals an external link */
+}
+
+.card-link:hover {
+    border-bottom-color: var(--accent);
+}
+
+/* Contact */
+.contact-intro {
+    max-width: 62ch;
+    margin: 0 0 1.5rem;
+    color: var(--text-muted);
+}
+
+.contact-list {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.contact-link {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: border-color 0.2s;
+}
+
+.contact-link:hover {
+    border-color: var(--accent);
+}
+
+.contact-label {
+    flex-shrink: 0;
+    width: 5.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.contact-value {
+    overflow-wrap: anywhere;
 }
 
 @media (prefers-reduced-motion: reduce) {
