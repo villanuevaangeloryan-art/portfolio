@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Angelo Ryan D. Villanueva | Aspiring SOC Analyst</title>
+    <script>
+        // Apply the saved theme before the page paints, so there is no dark flash.
+        try {
+            var savedTheme = localStorage.getItem("theme");
+            if (savedTheme) document.documentElement.setAttribute("data-theme", savedTheme);
+        } catch (e) {}
+    </script>
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="./assets/js/script.js" defer></script>
 </head>
@@ -26,14 +33,24 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-        <button id="theme-toggle" type="button">Dark mode</button>
+        <button id="theme-toggle" type="button">Light mode</button>
     </aside>
 
     <div class="content">
         <main>
             <section id="home">
+                <p class="eyebrow"><span class="status-dot"></span>Open to entry-level SOC analyst roles</p>
                 <h1>Angelo Ryan D. Villanueva</h1>
-                <p>[to construct*].</p>
+                <p class="tagline">IT student building toward a SOC analyst career</p>
+                <p class="summary">
+                    Fourth-year Information Technology student with a background in Java,
+                    web development and databases, currently building hands-on skills in
+                    security log analysis, threat monitoring and SIEM tools.
+                </p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#contact">Get in touch</a>
+                    <a class="btn" href="#work">Labs &amp; projects</a>
+                </div>
             </section>
 
             <section id="about"><h2>About</h2></section>

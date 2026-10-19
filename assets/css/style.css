@@ -51,6 +51,11 @@ ul {
     padding: 0;
 }
 
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
 /* Page layout*/
 .content {
     margin-left: var(--sidebar-width);
@@ -120,4 +125,107 @@ main section {
     border: 1px solid var(--border);
     border-radius: 6px;
     cursor: pointer;
+}
+
+#theme-toggle:hover {
+    border-color: var(--accent);
+}
+
+/* Home section */
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.25rem;
+    min-height: 100vh;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0.25rem 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+#home h1 {
+    margin: 0;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.tagline {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.tagline::after {
+    content: "_";
+    color: var(--accent);
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.summary {
+    max-width: 56ch;
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.btn {
+    padding: 0.6rem 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.btn-primary {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .tagline::after {
+        animation: none;
+    }
 }
