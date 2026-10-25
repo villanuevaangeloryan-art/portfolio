@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sample project page: Phishing Email Analysis. Placeholder content for previewing the layout.">
+    <title>Sample: Phishing Email Analysis | Angelo Ryan D. Villanueva</title>
+    <script>
+        // Apply the saved theme before the page paints, so there is no dark flash.
+        try {
+            var savedTheme = localStorage.getItem("theme");
+            if (savedTheme) document.documentElement.setAttribute("data-theme", savedTheme);
+        } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/script.js" defer></script>
+</head>
+<body class="project-page">
+    <header class="project-bar">
+        <a class="back-link" href="../index.html#work">&larr; Back to projects</a>
+        <button id="theme-toggle" type="button">Light mode</button>
+    </header>
+
+    <main class="project">
+        <div class="project-header">
+            <span class="tag tag-done">Completed</span>
+            <h1>Sample: Phishing Email Analysis</h1>
+        </div>
+
+        <!-- SAMPLE PAGE (UI preview only): delete this file and its card before publishing. -->
+        <p class="sample-note">
+            <strong>Sample page.</strong> This is placeholder content for previewing the layout.
+            It is not a real project.
+        </p>
+
+        <figure class="project-figure">
+            <div class="image-placeholder" role="img" aria-label="Placeholder for a lab screenshot">
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                    <circle cx="8.5" cy="9.5" r="1.5"></circle>
+                    <path d="M21 16l-5-5-8 9"></path>
+                </svg>
+                <span>Image placeholder</span>
+            </div>
+            <figcaption>Annotated email header and indicator list, to be added.</figcaption>
+        </figure>
+
+        <section id="objective">
+            <h2>Objective</h2>
+            <p>
+                Learn to recognise phishing emails by examining sample messages and documenting
+                the warning signs.
+            </p>
+        </section>
+
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>Each sample email is examined for the following:</p>
+            <ol>
+                <li>Sender and header details, such as the reply-to address and mail route.</li>
+                <li>Links, checked against where they really lead.</li>
+                <li>Attachments, checked before anything is opened.</li>
+                <li>Pressure tactics, such as urgency or threats.</li>
+                <li>A short write-up listing the indicators found and the next step an analyst would take.</li>
+            </ol>
+        </section>
+
+        <section id="technologies">
+            <h2>Technologies used</h2>
+            <ul class="tech-list">
+                <li>
+                    <strong>Email headers</strong>
+                    Technical details inside every message that show who sent it and how it travelled.
+                </li>
+                <li>
+                    <strong>VirusTotal</strong>
+                    Online service that checks links and files against many security scanners.
+                </li>
+                <li>
+                    <strong>Incident investigation</strong>
+                    Recording indicators and deciding what should happen next.
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="project-footer">
+        <p>&copy; 2026 Angelo Ryan D. Villanueva</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sample project page: Windows Event Log Triage. Placeholder content for previewing the layout.">
+    <title>Sample: Windows Event Log Triage | Angelo Ryan D. Villanueva</title>
+    <script>
+        // Apply the saved theme before the page paints, so there is no dark flash.
+        try {
+            var savedTheme = localStorage.getItem("theme");
+            if (savedTheme) document.documentElement.setAttribute("data-theme", savedTheme);
+        } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/script.js" defer></script>
+</head>
+<body class="project-page">
+    <header class="project-bar">
+        <a class="back-link" href="../index.html#work">&larr; Back to projects</a>
+        <button id="theme-toggle" type="button">Light mode</button>
+    </header>
+
+    <main class="project">
+        <div class="project-header">
+            <span class="tag tag-progress">In progress</span>
+            <h1>Sample: Windows Event Log Triage</h1>
+        </div>
+
+        <!-- SAMPLE PAGE (UI preview only): delete this file and its card before publishing. -->
+        <p class="sample-note">
+            <strong>Sample page.</strong> This is placeholder content for previewing the layout.
+            It is not a real project.
+        </p>
+
+        <figure class="project-figure">
+            <div class="image-placeholder" role="img" aria-label="Placeholder for a lab screenshot">
+                <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="16" rx="2"></rect>
+                    <circle cx="8.5" cy="9.5" r="1.5"></circle>
+                    <path d="M21 16l-5-5-8 9"></path>
+                </svg>
+                <span>Image placeholder</span>
+            </div>
+            <figcaption>Event Viewer with the Security log filtered, to be added.</figcaption>
+        </figure>
+
+        <section id="objective">
+            <h2>Objective</h2>
+            <p>
+                Practice reading Windows security logs to tell normal activity apart from events
+                that deserve escalation.
+            </p>
+        </section>
+
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>Steps in this lab:</p>
+            <ol>
+                <li>Open Windows Event Viewer and filter the Security log.</li>
+                <li>Find failed and successful sign-in events.</li>
+                <li>Group the events by account and time to look for unusual patterns.</li>
+                <li>Decide which events deserve escalation and note why.</li>
+            </ol>
+        </section>
+
+        <section id="technologies">
+            <h2>Technologies used</h2>
+            <ul class="tech-list">
+                <li>
+                    <strong>Windows Event Viewer</strong>
+                    Built-in Windows tool for reading system and security logs.
+                </li>
+                <li>
+                    <strong>Windows Security log</strong>
+                    The record of sign-ins and other security-related events on a computer.
+                </li>
+                <li>
+                    <strong>Security log analysis</strong>
+                    Reading log entries to separate routine activity from suspicious activity.
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="project-footer">
+        <p>&copy; 2026 Angelo Ryan D. Villanueva</p>
+    </footer>
+</body>
+</html>

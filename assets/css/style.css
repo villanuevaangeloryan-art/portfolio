@@ -51,6 +51,10 @@ ul {
     padding: 0;
 }
 
+img {
+    max-width: 100%;
+}
+
 :focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
@@ -84,6 +88,7 @@ main section {
     gap: 2rem;
     background: var(--surface);
     border-right: 1px solid var(--border);
+    overflow-y: auto;
 }
 
 .brand {
@@ -279,6 +284,17 @@ main h2::before {
     gap: 1rem;
 }
 
+/* Project cards flow into columns: one card is full width, more cards share rows.
+   min(100%, 300px) stops a column from being wider than a small phone screen. */
+.project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+/* Let each card fill its grid cell, so cards in the same row have equal height */
+.project-grid > li {
+    display: flex;
+}
+
 .card {
     padding: 1.25rem;
     background: var(--surface);
@@ -378,7 +394,8 @@ main h2::before {
 }
 
 /* Contact */
-.contact-intro {
+.contact-intro,
+.section-note {
     max-width: 62ch;
     margin: 0 0 1.5rem;
     color: var(--text-muted);
@@ -416,6 +433,477 @@ main h2::before {
     overflow-wrap: anywhere;
 }
 
+/* Education timeline */
+.timeline {
+    margin: 0;
+    padding: 0 0 0 1.5rem;
+    list-style: none;
+    border-left: 1px solid var(--border);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+/* The dot on the line. The calc centers it on the 1px border. */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 0.45rem;
+    left: calc(-1.5rem - 4.5px);
+    width: 8px;
+    height: 8px;
+    background: var(--bg);
+    border: 1px solid var(--text-muted);
+    border-radius: 50%;
+}
+
+.timeline-item.is-current::before {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.timeline-date {
+    margin: 0 0 0.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.timeline-item h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.4;
+}
+
+.timeline-org {
+    margin: 0.15rem 0 0;
+    color: var(--text-muted);
+}
+
+.timeline-notes {
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.timeline-notes li::before {
+    content: "\2013\00a0";
+    color: var(--accent);
+}
+
+/* A whole card that is a link (project cards on the main page) */
+.project-card {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    transition: border-color 0.2s;
+}
+
+.project-card:hover {
+    border-color: var(--accent);
+}
+
+/* Status tag always sits above the title, so cards line up whatever the title length.
+   column-reverse changes only the look; the title still comes first for screen readers. */
+.project-card .card-head {
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+}
+
+.card-cta {
+    margin-top: auto; /* pins "View details" to the bottom of the card */
+    padding-top: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--accent);
+}
+
+/* ==========================================================
+   Project detail pages (projects/*.html)
+   ========================================================== */
+
+/* These pages have their own header bar, not the mobile top bar */
+.project-page::before {
+    content: none;
+}
+
+.project-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.back-link {
+    padding: 0.6rem 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* In the sidebar the theme button sits at the bottom. In the bar it should not. */
+.project-bar #theme-toggle {
+    margin-top: 0;
+    padding: 0.6rem 0.9rem;
+}
+
+.project {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 4rem;
+}
+
+/* Notice on sample pages, so they cannot be mistaken for real projects */
+.sample-note {
+    max-width: none;
+    margin: 0 0 1.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+}
+
+.sample-note strong {
+    color: var(--accent);
+}
+
+.project-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.project h1 {
+    margin: 0;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.project section {
+    padding: 1.5rem 0;
+}
+
+.project section p {
+    max-width: 62ch;
+    margin: 0 0 1rem;
+    color: var(--text-muted);
+}
+
+.project ol {
+    margin: 0;
+    padding-left: 1.25rem;
+    color: var(--text-muted);
+}
+
+.project ol li {
+    margin-bottom: 0.5rem;
+}
+
+.tech-list {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.tech-list li {
+    padding: 0.9rem 1.1rem;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.tech-list strong {
+    display: block;
+    margin-bottom: 0.15rem;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text);
+}
+
+.project-footer {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 1.25rem 2rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Project page image: a placeholder box now, a real screenshot later */
+.project-figure {
+    margin: 0 0 1rem;
+}
+
+.project-figure img,
+.image-placeholder {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.project-figure img {
+    border: 1px solid var(--border);
+}
+
+.image-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    aspect-ratio: 16 / 9;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1px dashed var(--text-muted);
+}
+
+.project-figure figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Project cards: short summary under the title */
+.card-summary {
+    margin: 0 0 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Status tags. "Planned" is the default grey tag. */
+.tag-progress {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+.tag-done {
+    color: var(--bg);
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+/* One-line description under a card title (skills) */
+.card-subtitle {
+    margin: -0.5rem 0 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================
+   Responsive: tablets and phones
+   ========================================================== */
+
+/* The menu button and backdrop only exist on small screens */
+.menu-toggle,
+.backdrop {
+    display: none;
+}
+
+/* Hamburger icon: the span is the middle bar, ::before and ::after are the top and bottom bars */
+.menu-icon {
+    position: relative;
+}
+
+.menu-icon,
+.menu-icon::before,
+.menu-icon::after {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    transition: transform 0.2s ease, top 0.2s ease, background 0.2s ease;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.menu-icon::before {
+    top: -6px;
+}
+
+.menu-icon::after {
+    top: 6px;
+}
+
+/* When the menu is open, the three bars turn into an X */
+.menu-toggle[aria-expanded="true"] .menu-icon {
+    background: transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-icon::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+    /* Room at the top for the bar, and anchor links stop below it */
+    html {
+        scroll-padding-top: 4.25rem;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 4.25rem 1.25rem 0;
+    }
+
+    /* A solid top bar, so scrolling content never slides under the menu button */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 15;
+        height: 4.25rem;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+    }
+
+    /* The sidebar becomes a drawer that slides in from the left.
+       visibility: hidden keeps its links out of keyboard focus while it is closed. */
+    .sidebar {
+        z-index: 30;
+        width: min(var(--sidebar-width), 85vw);
+        transform: translateX(-100%);
+        visibility: hidden;
+        transition: transform 0.25s ease, visibility 0s linear 0.25s;
+    }
+
+    body.menu-open .sidebar {
+        transform: translateX(0);
+        visibility: visible;
+        transition: transform 0.25s ease, visibility 0s;
+    }
+
+    /* Bigger touch targets */
+    .sidebar nav a {
+        padding: 0.75rem;
+    }
+
+    #theme-toggle {
+        padding: 0.75rem;
+    }
+
+    .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0.75rem;
+        right: 0.75rem;
+        z-index: 40;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        color: var(--text);
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    /* Dark overlay behind the open drawer. Tapping it closes the menu. */
+    .backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 20;
+        background: rgba(0, 0, 0, 0.55);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+    }
+
+    body.menu-open .backdrop {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 560px) {
+    main section {
+        padding: 3rem 0;
+    }
+
+    .hero-photo {
+        max-width: 220px;
+    }
+
+    .eyebrow {
+        border-radius: 14px;
+    }
+
+    .hero-actions .btn {
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    .card {
+        padding: 1rem;
+    }
+
+    /* Logo on top, text below, so long titles get the full card width */
+    .cert {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cert-body {
+        flex: none;
+        width: 100%;
+    }
+
+    /* Label above value, so long emails and URLs are not squeezed */
+    .contact-link {
+        flex-direction: column;
+        gap: 0.25rem;
+        padding: 1rem;
+    }
+
+    .contact-label {
+        width: auto;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
@@ -423,5 +911,13 @@ main h2::before {
 
     .tagline::after {
         animation: none;
+    }
+
+    .sidebar,
+    .backdrop,
+    .menu-icon,
+    .menu-icon::before,
+    .menu-icon::after {
+        transition: none;
     }
 }

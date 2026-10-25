@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Angelo Ryan D. Villanueva, a fourth-year IT student building toward a SOC analyst career: certifications, skills, education and hands-on security labs.">
     <title>Angelo Ryan D. Villanueva | Aspiring SOC Analyst</title>
     <script>
         // Apply the saved theme before the page paints, so there is no dark flash.
@@ -15,21 +16,26 @@
     <script src="./assets/js/script.js" defer></script>
 </head>
 <body>
-    <aside class="sidebar">
+    <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+        <span class="menu-icon" aria-hidden="true"></span>
+    </button>
+    <div id="backdrop" class="backdrop"></div>
+
+    <aside id="sidebar" class="sidebar">
 
         <div class="brand">
             <span class="brand-name">Angelo Ryan D. Villanueva</span>
             <span class="brand-role">Aspiring SOC Analyst</span>
         </div>
 
-       
         <nav aria-label="Primary">
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
                 <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#work">Labs &amp; Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -44,13 +50,15 @@
                     <h1>Angelo Ryan D. Villanueva</h1>
                     <p class="tagline">IT student building toward a SOC analyst career</p>
                     <p class="summary">
-                        Fourth-year Information Technology student with a background in Java,
-                        web development and databases, currently building hands-on skills in
-                        security log analysis, threat monitoring and SIEM tools.
+                        Fourth-year Information Technology student at the University of Cabuyao
+                        with a background in Java, web development and databases, currently
+                        building hands-on skills in security log analysis, threat monitoring
+                        and SIEM tools.
                     </p>
                     <div class="hero-actions">
                         <a class="btn btn-primary" href="#contact">Get in touch</a>
-                        <a class="btn" href="#work">Labs &amp; projects</a>
+                        <a class="btn" href="#certifications">View certifications</a>
+                        <!-- TODO: add a "Resume" button once assets/docs/resume.pdf exists -->
                     </div>
                 </div>
 
@@ -59,12 +67,251 @@
                 </figure>
             </section>
 
+            <section id="certifications">
+                <h2>Certifications</h2>
+                <ul class="card-list">
+                    <li class="card cert">
+                        <img class="cert-logo" src="./assets/img/logos/Cisco_academy_logo.svg" alt="">
+                        <div class="cert-body">
+                            <div class="card-head">
+                                <h3>Introduction to Cybersecurity</h3>
+                                <span class="tag">Course</span>
+                            </div>
+                            <p class="card-meta">Cisco Networking Academy - <time datetime="2026-09">September 2026</time></p>
+                            <a class="card-link" href="PASTE-REAL-URL-HERE" target="_blank" rel="noopener noreferrer">View credential</a>
+                        </div>
+                    </li>
+
+                    <li class="card cert">
+                        <img class="cert-logo" src="./assets/img/logos/TESDA_Seal.svg.webp" alt="">
+                        <div class="cert-body">
+                            <div class="card-head">
+                                <h3>Microsoft Cybersecurity Course: Security, Compliance, and Identity Fundamentals</h3>
+                                <span class="tag">Course</span>
+                            </div>
+                            <p class="card-meta">TESDA - <time datetime="2026-08">August 2026</time></p>
+                            <a class="card-link" href="PASTE-REAL-URL-HERE" target="_blank" rel="noopener noreferrer">View credential</a>
+                        </div>
+                    </li>
+
+                    <li class="card cert">
+                        <img class="cert-logo" src="./assets/img/logos/Fortinet_logo.svg" alt="">
+                        <div class="cert-body">
+                            <div class="card-head">
+                                <h3>NSE 1 Certified in Cybersecurity</h3>
+                                <span class="tag">Certification</span>
+                            </div>
+                            <p class="card-meta">Fortinet - <time datetime="2026-10">October 2026</time></p>
+                            <a class="card-link" href="PASTE-REAL-URL-HERE" target="_blank" rel="noopener noreferrer">View credential</a>
+                        </div>
+                    </li>
+
+                    <li class="card cert">
+                        <img class="cert-logo" src="./assets/img/logos/Fortinet_logo.svg" alt="">
+                        <div class="cert-body">
+                            <div class="card-head">
+                                <h3>NSE 2 Certified in Cybersecurity</h3>
+                                <span class="tag">Certification</span>
+                            </div>
+                            <p class="card-meta">Fortinet - <time datetime="2026-10-19">October 19, 2026</time></p>
+                            <a class="card-link" href="PASTE-REAL-URL-HERE" target="_blank" rel="noopener noreferrer">View credential</a>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="skills">
+                <h2>Skills</h2>
+                <div class="card-list">
+                    <article class="card">
+                        <div class="card-head">
+                            <h3>Security Operations</h3>
+                            <span class="tag">Learning</span>
+                        </div>
+                        <p class="card-subtitle">Detection, analysis and investigation</p>
+                        <ul class="chip-list">
+                            <li>Security log analysis</li>
+                            <li>Threat monitoring</li>
+                            <li>Incident investigation</li>
+                            <li>Wazuh</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-head">
+                            <h3>Security Foundations</h3>
+                            <span class="tag">Learning</span>
+                        </div>
+                        <p class="card-subtitle">Core concepts I'm building on</p>
+                        <ul class="chip-list">
+                            <li>Cybersecurity concepts</li>
+                            <li>Security, compliance and identity concepts</li>
+                            <li>Secure application development</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-head">
+                            <h3>Software Development</h3>
+                            <span class="tag">Working knowledge</span>
+                        </div>
+                        <p class="card-subtitle">Building and connecting applications</p>
+                        <ul class="chip-list">
+                            <li>Java</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JavaScript</li>
+                            <li>Object-oriented programming</li>
+                            <li>Web and application development</li>
+                            <li>Frontend-backend API integration</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <div class="card-head">
+                            <h3>Data &amp; Databases</h3>
+                            <span class="tag">Working knowledge</span>
+                        </div>
+                        <p class="card-subtitle">Storing and managing application data</p>
+                        <ul class="chip-list">
+                            <li>MySQL Workbench</li>
+                            <li>Supabase</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <section id="work">
+                <h2>Labs &amp; Projects</h2>
+                <p class="section-note">
+                    Hands-on SOC labs and write-ups will be added here as I complete them.
+                    Each one will be marked completed, in progress or planned.
+                </p>
+                <ul class="card-list project-grid">
+                    <!-- MOCK ENTRY: replace it with a real lab, or delete it, before publishing.
+                         Only change the status to "In progress" or "Completed" when that is true. -->
+
+                    <!-- SAMPLE CARDS (UI preview only): before publishing, delete the three "Sample" cards
+                         and their pages (phishing-email-analysis.html, windows-event-log-triage.html,
+                         secure-login-system.html in the projects folder). They are not real projects,
+                         and their statuses are not real. -->
+                    <li>
+                        <a class="card project-card" href="projects/phishing-email-analysis.html">
+                            <div class="card-head">
+                                <h3>Sample: Phishing Email Analysis</h3>
+                                <span class="tag tag-done">Completed</span>
+                            </div>
+                            <p class="card-summary">
+                                Examine sample phishing emails: read the headers, check links and
+                                attachments, and list the indicators found.
+                            </p>
+                            <ul class="chip-list">
+                                <li>Email headers</li>
+                                <li>VirusTotal</li>
+                                <li>Incident investigation</li>
+                            </ul>
+                            <span class="card-cta">View details &rarr;</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="card project-card" href="projects/windows-event-log-triage.html">
+                            <div class="card-head">
+                                <h3>Sample: Windows Event Log Triage</h3>
+                                <span class="tag tag-progress">In progress</span>
+                            </div>
+                            <p class="card-summary">
+                                Review Windows security events to spot failed logins and unusual
+                                activity, and note which ones deserve escalation.
+                            </p>
+                            <ul class="chip-list">
+                                <li>Windows Event Viewer</li>
+                                <li>Security log analysis</li>
+                            </ul>
+                            <span class="card-cta">View details &rarr;</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="card project-card" href="projects/wazuh-log-monitoring-lab.html">
+                            <div class="card-head">
+                                <h3>Wazuh Log Monitoring Lab</h3>
+                                <span class="tag">Planned</span>
+                            </div>
+                            <p class="card-summary">
+                                Set up a Wazuh server and one monitored endpoint in a home lab, then
+                                investigate the alerts generated by simulated failed logins.
+                            </p>
+                            <ul class="chip-list">
+                                <li>Wazuh</li>
+                                <li>Security log analysis</li>
+                                <li>Threat monitoring</li>
+                            </ul>
+                            <span class="card-cta">View details &rarr;</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="card project-card" href="projects/secure-login-system.html">
+                            <div class="card-head">
+                                <h3>Sample: Secure Login System</h3>
+                                <span class="tag">Planned</span>
+                            </div>
+                            <p class="card-summary">
+                                Add input validation and password hashing to a login system built
+                                with Java and Supabase.
+                            </p>
+                            <ul class="chip-list">
+                                <li>Java</li>
+                                <li>Supabase</li>
+                                <li>Secure application development</li>
+                            </ul>
+                            <span class="card-cta">View details &rarr;</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="education">
+                <h2>Education</h2>
+                <ol class="timeline">
+                    <li class="timeline-item is-current">
+                        <p class="timeline-date"><time datetime="2023-08">August 2023</time> &ndash; Present</p>
+                        <h3>Bachelor of Science in Information Technology</h3>
+                        <p class="timeline-org">University of Cabuyao (Pamantasan ng Cabuyao)</p>
+                        <ul class="timeline-notes">
+                            <li>2024 IT Olympics University of Makati Quiz Bee Participant</li>
+                        </ul>
+                    </li>
+
+                    <li class="timeline-item">
+                        <p class="timeline-date"><time datetime="2021-08">August 2021</time> &ndash; <time datetime="2022">2022</time></p>
+                        <h3>Bachelor of Science in Mechanical Engineering</h3>
+                        <p class="timeline-org">Batangas State University</p>
+                        <ul class="timeline-notes">
+                            <li>Co-Head, Media and Creatives Committee (Videographer)</li>
+                        </ul>
+                    </li>
+
+                    <li class="timeline-item">
+                        <p class="timeline-date"><time datetime="2019-08">August 2019</time> &ndash; <time datetime="2021-07">July 2021</time></p>
+                        <h3>Science, Technology, Engineering and Mathematics (STEM)</h3>
+                        <p class="timeline-org">University of Cabuyao (Pamantasan ng Cabuyao)</p>
+                        <ul class="timeline-notes">
+                            <li>Supreme Student Government Officer (2019&ndash;2020)</li>
+                            <li>Academic Awardee</li>
+                            <li>TOP 10 Best Science Investigatory Project</li>
+                        </ul>
+                    </li>
+                </ol>
+            </section>
+
             <section id="about">
                 <h2>About</h2>
                 <p>
                     I'm a fourth-year Information Technology student with a background in Java
                     and object-oriented programming, web and application development, and
-                    frontend-backend API integration. I manage data with MySQL and Supabase.
+                    frontend-backend API integration. I have manage data with MySQL and Supabase.
                 </p>
                 <p>
                     I'm aiming for a role as a SOC analyst. Alongside my coursework, I'm
@@ -80,132 +327,28 @@
                 </p>
             </section>
 
-            <section id="skills">
-                <h2>Skills</h2>
-                <div class="card-list">
-                    <article class="card">
-                        <div class="card-head">
-                            <h3>Security</h3>
-                            <span class="tag">Learning</span>
-                        </div>
-                        <ul class="chip-list">
-                            <li>Security log analysis</li>
-                            <li>Threat monitoring</li>
-                            <li>Incident investigation</li>
-                            <li>SIEM tools</li>
-                            <li>Secure application development</li>
-                        </ul>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-head">
-                            <h3>Development</h3>
-                            <span class="tag">Working knowledge</span>
-                        </div>
-                        <ul class="chip-list">
-                            <li>Java</li>
-                            <li>Object-oriented programming</li>
-                            <li>Web and application development</li>
-                            <li>Frontend-backend API integration</li>
-                        </ul>
-                    </article>
-
-                    <article class="card">
-                        <div class="card-head">
-                            <h3>Data</h3>
-                            <span class="tag">Working knowledge</span>
-                        </div>
-                        <ul class="chip-list">
-                            <li>MySQL</li>
-                            <li>Supabase</li>
-                            <li>Database management</li>
-                        </ul>
-                    </article>
-                </div>
-            </section>
-
-            <section id="certifications">
-                <h2>Certifications</h2>
-                <ul class="card-list">
-                    <li class="card cert">
-                     
-                        <img class="cert-logo" src="./assets/img/logos/Cisco_academy_logo.svg" alt="">
-                        <div class="cert-body">
-                            <div class="card-head">
-                                <h3>Introduction to Cybersecurity</h3>
-                                <span class="tag">Course</span>
-                            </div>
-                            <p class="card-meta">Cisco Networking Academy - <time datetime="YYYY-MM">September 2026</time></p>
-                            <a class="card-link" href="PASTE-REAL-URL-HERE" target="_blank" rel="noopener noreferrer">View credential</a>
-
-                            
-                        </div>
-                    </li>
-
-                    <li class="card cert">
-                        <img class="cert-logo" src="./assets/img/logos/TESDA_Seal.svg.webp" alt="">
-                        <div class="cert-body">
-                            <div class="card-head">
-                                <h3>Microsoft Cybersecurity Course: Security, Compliance, and Identity Fundamentals</h3>
-                                <span class="tag">Course</span>
-                            </div>
-                            <p class="card-meta">TESDA - <time datetime="YYYY-MM">August 2026</time></p>
-                            <a class="card-link" href="PASTE-REAL-URL-HERE" target="_blank" rel="noopener noreferrer">View credential</a>
-
-                        </div>
-                    </li>
-
-                    <li class="card cert">
-                        <img class="cert-logo" src="./assets/img/logos/Fortinet_logo.svg" alt="">
-                        <div class="cert-body">
-                            <div class="card-head">
-                                <h3>NSE 1 Certified in Cybersecurity</h3>
-                                <span class="tag">Certification</span>
-                            </div>
-                            <p class="card-meta">Fortinet - <time datetime="YYYY-MM">October 2026</time></p>
-                            <a class="card-link" href="PASTE-REAL-URL-HERE" target="_blank" rel="noopener noreferrer">View credential</a>
-
-                        </div>
-                    </li>
-
-                    <li class="card cert">
-                        <img class="cert-logo" src="./assets/img/logos/Fortinet_logo.svg" alt="">
-                        <div class="cert-body">
-                            <div class="card-head">
-                                <h3>NSE 2 Certified in Cybersecurity</h3>
-                                <span class="tag">Certification</span>
-                            </div>
-                            <p class="card-meta">Fortinet - <time datetime="YYYY-MM">October 2026</time></p>
-                            <a class="card-link" href="PASTE-REAL-URL-HERE" target="_blank" rel="noopener noreferrer">View credential</a>
-
-                        </div>
-                    </li>
-                </ul>
-            </section>
-            <section id="work"><h2>Labs &amp; Projects</h2></section>
             <section id="contact">
                 <h2>Contact</h2>
                 <p class="contact-intro">
                     I'm open to entry-level SOC analyst opportunities. Email is the best way to reach me.
                 </p>
                 <ul class="contact-list">
-                    <!-- TODO: replace the placeholder email and profile URLs with your real ones -->
                     <li>
-                        <a class="contact-link" href="mailto:your.email@example.com">
+                        <a class="contact-link" href="mailto:angeloryanvillanueva03@gmail.com">
                             <span class="contact-label">Email</span>
-                            <span class="contact-value">angeloryanvillanueva@gmail.com</span>
+                            <span class="contact-value">angeloryanvillanueva03@gmail.com</span>
                         </a>
                     </li>
                     <li>
-                        <a class="contact-link" href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener noreferrer">
+                        <a class="contact-link" href="https://github.com/villanuevaangeloryan-art" target="_blank" rel="noopener noreferrer">
                             <span class="contact-label">GitHub</span>
                             <span class="contact-value">github.com/villanuevaangeloryan-art</span>
                         </a>
                     </li>
                     <li>
-                        <a class="contact-link" href="https://www.linkedin.com/in/angelo-ryan-villanueva-91929b424 " target="_blank" rel="noopener noreferrer">
+                        <a class="contact-link" href="https://www.linkedin.com/in/angelo-ryan-villanueva-91929b424" target="_blank" rel="noopener noreferrer">
                             <span class="contact-label">LinkedIn</span>
-                            <span class="contact-value">linkedin.com/in/Angelo-Villanueva</span>
+                            <span class="contact-value">linkedin.com/in/angelo-ryan-villanueva-91929b424</span>
                         </a>
                     </li>
                 </ul>
@@ -217,7 +360,6 @@
             <p>&copy; 2026 Angelo Ryan D. Villanueva</p>
         </footer>
     </div>
-
 
 </body>
 </html>
