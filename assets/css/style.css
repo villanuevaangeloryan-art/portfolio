@@ -164,8 +164,6 @@ main section {
     width: 100%;
     aspect-ratio: 4 / 5;
     object-fit: cover;
-    -webkit-mask-image: radial-gradient(ellipse closest-side at center, #000 55%, transparent 100%);
-    mask-image: radial-gradient(ellipse closest-side at center, #000 55%, transparent 100%);
 }
 
 @media (max-width: 1100px) {
@@ -920,4 +918,24 @@ main h2::before {
     .menu-icon::after {
         transition: none;
     }
+}
+
+/* Image previews for project cards and detail pages. */
+.project-thumb,
+.project-hero {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 8px;
+    background: rgba(128, 128, 128, 0.15);
+}
+
+.project-thumb {
+    margin-bottom: 1rem;
+}
+
+.project-hero {
+    max-width: 800px;
+    margin: 1rem 0 1.5rem;
 }
