@@ -962,3 +962,6 @@ main h2::before {
     max-width: 800px;
     margin: 1rem 0 1.5rem;
 }
+#work {
+    max-width: none;
+}
