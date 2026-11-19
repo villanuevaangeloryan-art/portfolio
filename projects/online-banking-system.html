@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Developed an online banking system in Java, with the graphical user interfaces built using Java Swing.">
+    <title>Online Banking System | Angelo Ryan D. Villanueva</title>
+    <script>
+        // Apply the saved theme before the page paints, so there is no dark flash.
+        try {
+            var savedTheme = localStorage.getItem("theme");
+            if (savedTheme) document.documentElement.setAttribute("data-theme", savedTheme);
+        } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/script.js" defer></script>
+</head>
+<body>
+    <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+        <span class="menu-icon" aria-hidden="true"></span>
+    </button>
+    <div id="backdrop" class="backdrop"></div>
+
+    <aside id="sidebar" class="sidebar">
+
+        <div class="brand">
+            <span class="brand-name">Angelo Ryan D. Villanueva</span>
+            <span class="brand-role">Aspiring SOC Analyst</span>
+        </div>
+
+        <nav aria-label="Primary">
+            <ul>
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#certifications">Certifications</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#work">Labs &amp; Projects</a></li>
+                <li><a href="../index.html#education">Education</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" type="button">Light mode</button>
+    </aside>
+
+    <div class="content">
+        <main>
+            <section>
+                <p><a class="card-link" href="../index.html#work">&larr; Back to Labs &amp; Projects</a></p>
+                <h1>Online Banking System</h1>
+                <p><span class="tag tag-done">Completed</span></p>
+                <img class="project-hero" src="../assets/img/projects/project-b.gif" alt="Preview of Online Banking System">
+
+                <h2>Overview</h2>
+                <p>I developed an online banking system using Java as the programming language. The graphical user interfaces were built with Java Swing.</p>
+
+                <h2>Tools used</h2>
+                <ul class="chip-list">
+                    <li>Java</li>
+                    <li>Java Swing</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Angelo Ryan D. Villanueva</p>
+        </footer>
+    </div>
+
+</body>
+</html>
